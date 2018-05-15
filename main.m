@@ -2,3 +2,4 @@
 taille_tabou = 10;
 list_tabou = zeros(1, taille_tabou);
 
+load('cities.mat');
