@@ -12,6 +12,3 @@ chemin = [1 1 3 2];
 d = city_distance(chemin,coord_villes)
 
 d2 = total_distance(chemin, coord_villes)
-
-
-
