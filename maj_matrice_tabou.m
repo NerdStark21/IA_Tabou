@@ -1,5 +1,5 @@
 function matrice_tabou = maj_matrice_tabou(matrice_tabou, permutation,...
-                                           temps_memoire_tabou)
+                                           taille_tabou)
 % fonction qui met à jour la matrice tabou (contenant les permutations
 % interdites) entre deux itérations.
 % matrice_tabou : matrice_tabou(i,j) est le nbre d'itération durant
@@ -10,11 +10,11 @@ function matrice_tabou = maj_matrice_tabou(matrice_tabou, permutation,...
 %% décroissance du nombre d'itérations restant pour les autres permutations
 matrice_tabou(matrice_tabou > 0) = matrice_tabou(matrice_tabou > 0) - 1;
 
-%% mise en mémoire de la permutation taboue pendant temps_memoire_tabou itérations
+%% mise en mémoire de la permutation taboue pendant taille_tabou itérations
 i = permutation(1)
 j = permutation(2)
 % on part du principe que i ~= j (car c'est une permutation)
-matrice_tabou(i, j) = temps_memoire_tabou;
-matrice_tabou(j, i) = temps_memoire_tabou;
+matrice_tabou(i, j) = taille_tabou;
+matrice_tabou(j, i) = taille_tabou;
 
 end
