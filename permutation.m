@@ -35,6 +35,7 @@ for i = 1:mt
                 if(delta < min_delta)
                     liste_optimum = [i j];
                     min_delta = delta;
+                    d_min = d2;
                 elseif (delta == min_delta)
                     liste_optimum(size(liste_optimum, 1)+1,:) = [i j];
                 end
@@ -45,5 +46,5 @@ for i = 1:mt
     [m,n] = size(liste_optimum);
     rn = ceil(rand()*m);
     permu = liste_optimum(rn,:);
-    mini = min_delta;
+    mini = d_min;
 end
