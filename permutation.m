@@ -5,8 +5,10 @@ function [permu,mini,liste_delta] = permutation(mat_tabou,coord_villes, chemin)
 d = total_distance(chemin,coord_villes);
 chemin_origine = chemin;
 % On échange
-chemin(find(chemin==1)) = 2;
-chemin(find(chemin==2)) = 1;
+indice1 = find(chemin==1);
+indice2 = find(chemin==2);
+chemin(indice1) = 2;
+chemin(indice2) = 1;
 %Calcul de la distance avec le chemin permuté
 d2 = total_distance(chemin,coord_villes);
 
