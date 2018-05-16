@@ -14,5 +14,4 @@ for j = 1:N-1
    d = d + dist_inter_villes;
 end
 
-
 end
