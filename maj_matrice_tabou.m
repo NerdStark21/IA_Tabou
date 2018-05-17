@@ -11,8 +11,8 @@ function matrice_tabou = maj_matrice_tabou(matrice_tabou, permutation,...
 matrice_tabou(matrice_tabou > 0) = matrice_tabou(matrice_tabou > 0) - 1;
 
 %% mise en mémoire de la permutation taboue pendant taille_tabou itérations
-i = permutation(1)
-j = permutation(2)
+i = permutation(1);
+j = permutation(2);
 % on part du principe que i ~= j (car c'est une permutation)
 matrice_tabou(i, j) = taille_tabou;
 matrice_tabou(j, i) = taille_tabou;

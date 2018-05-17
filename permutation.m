@@ -1,24 +1,21 @@
-function [permu,mini,liste_delta] = permutation(mat_tabou,coord_villes, chemin)
+function [permu,mini,liste_delta] = permutation(chemin, mat_tabou, mat_dist)
 %Cette fonction permet de faire des permutations pour voir celle qui offre
 %un chemin qui minimise le coût.
 
-d = total_distance(chemin,coord_villes);
+% d la distance totale actuelle
+d = total_distance(chemin, mat_dist);
+% on stocke le chemin d'origine
 chemin_origine = chemin;
-% On échange
+% On fait un échange pour initialiser d2
 indice1 = find(chemin==1);
 indice2 = find(chemin==2);
 chemin(indice1) = 2;
 chemin(indice2) = 1;
 %Calcul de la distance avec le chemin permuté
-d2 = total_distance(chemin,coord_villes);
+min_delta = total_distance(chemin, mat_dist) + 1;
 
-min_delta = d2 + 1;
-[mt,nt] = size(mat_tabou);
-liste_optimum = [];
-liste_delta = [];
-
-for i = 1:mt
-    for j = 1:nt
+for i = 1:size(mat_tabou, 2)
+    for j = 1:i
         chemin = chemin_origine;
         if(mat_tabou(i,j) == 0)
             %Permutation
@@ -28,7 +25,8 @@ for i = 1:mt
                 chemin(indiceI) = j;
                 chemin(indiceJ) = i;
                 %Calcul de la distance avec le chemin permuté
-                d2 = total_distance(chemin,coord_villes);
+                %d2 = total_distance(chemin,coord_villes);
+                d2 = total_distance(chemin, mat_dist);
                 %Calcul de la différence de distance pour le coût
                 delta = d2 - d;
                 liste_delta(i,j) = delta;
@@ -42,9 +40,8 @@ for i = 1:mt
             end
         end
     end
-    
-    [m,n] = size(liste_optimum);
-    rn = ceil(rand()*m);
-    permu = liste_optimum(rn,:);
-    mini = d_min;
+end
+rn = ceil(rand()*size(liste_optimum, 1));
+permu = liste_optimum(rn,:);
+mini = d_min;
 end
