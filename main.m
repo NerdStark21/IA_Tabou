@@ -6,7 +6,7 @@
 %% nettoyage
 
 clc; clear all;
-
+dist_eucl([1, 1], [2, 2])
 
 %% Paramètres
 
