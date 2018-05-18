@@ -12,9 +12,9 @@ for k=1:nb_ville
     for j=1:k
         % Sur la diagonale, on va stocker les distance des villes à (0, 0)
         if j ==k
-            carte_distance(k, j) = dist_eucl(coord_villes(k), 0);
+            carte_distance(k, j) = dist_eucl(coord_villes(:, k), [0, 0]);
         else
-            carte_distance(k, j) = dist_eucl(coord_villes(k), coord_villes(j));
+            carte_distance(k, j) = dist_eucl(coord_villes(:, k), coord_villes(:, j));
         end
     end
 end
